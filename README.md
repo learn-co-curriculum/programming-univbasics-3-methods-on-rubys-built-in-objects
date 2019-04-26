@@ -71,9 +71,9 @@ of their name.
 
 ```ruby
 2.3.3 :002 > "hi".class
-#=> String
+ => String
 2.3.3 :002 > "there".class
-#=> String
+ => String
 ```
 
 We expect that if a `String` can do something, any `String` can do that similar
@@ -85,20 +85,20 @@ going on specifically in the next section, but:
 
 ```ruby
 2.3.3 :003 > "hi".length
-#=> 2
+ => 2
 2.3.3 :004 > x = "hi"
-#=> "hi"
+ => "hi"
 2.3.3 :005 > x.length
-#=> 2
+ => 2
 2.3.3 :006 > y = "there"
-#=> "there"
+ => "there"
 2.3.3 :007 > y.length
-#=> 5
+ => 5
 2.3.3 :008 > tip = "These two strings need at least #{ x.length + y.length } slots"
-#=> "These two strings need at least 7 slots"
+ => "These two strings need at least 7 slots"
 2.3.3 :009 > puts tip
 These two strings need at least 7 slots
-#=> nil
+ => nil
 ```
 
 Amazing, right? Instances being smart about themselves means you can ask them
