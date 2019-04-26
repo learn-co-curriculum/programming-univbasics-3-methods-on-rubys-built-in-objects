@@ -2,18 +2,18 @@
 
 ## Learning Goals
 
-* Define Object Oriented Programming (OOP)
-* Define instance
-* Define class
-* Define attribute / property
-* Define "dot-notation" syntax
-* Define method
-* Demonstrate method chaining
-* Find documentation about methods and attributes
+- Define Object Oriented Programming (OOP)
+- Define instance
+- Define class
+- Define attribute / property
+- Define "dot-notation" syntax
+- Define method
+- Demonstrate method chaining
+- Find documentation about methods and attributes
 
 ## Introduction
 
-In the previous lessons you've learned to encapsulate work in methods. Methods
+In the previous lessons, you've learned to encapsulate work in methods. Methods
 can take in arguments and then use repetition, selection, and expression
 evaluation to provide information about the arguments they were handed.
 
@@ -30,24 +30,24 @@ things about themselves.
 This. Is. So. Cool.
 
 In time, you'll learn to create objects of your own, things that represent
-`Student`s or `PayrollRecord`s. This is known as Object Oriented Programming.
+`Student`s or `PayrollRecord`s. This is known as Object-Oriented Programming.
 This is a vast topic that will take many lessons and a lot of practice to
 learn. Our point here is to show you how to interact with the default objects
 Ruby provides. But don't worry, you'll _definitely_ learn to teach the objects
 of your world to tell you about themselves soon enough.
 
-## Define Object Oriented Programming
+## Define Object-Oriented Programming
 
-Bundling code into little objects like this that are "smart" is "Object-
-Oriented Programming (OOP)." OOP is a huge topic that will take a lot of
-practice to master. However, for the moment we merely want to show you how to
-use the objects that Ruby provides to help you do work.
+Bundling code into little objects like this that are "smart" is "Object-Oriented
+Programming (OOP)." OOP is a huge topic that will take a lot of practice to
+master. However, for the moment we merely want to show you how to use the
+objects that Ruby provides to help you do work.
 
 ## Define Instance
 
 Sometimes programmers call "objects" instances because they are instances of a
 class. `3.14` is an instance of the `Float` class. `"hi"` is an instance of
-the` String` class.
+the `String` class.
 
 ## Define Class
 
@@ -60,9 +60,9 @@ of their name.
 
 ```ruby
 2.3.3 :002 > "hi".class
- => String
+#=> String
 2.3.3 :002 > "there".class
- => String
+#=> String
 ```
 
 We expect that if a `String` can do something, any `String` can do that similar
@@ -74,20 +74,20 @@ going on specifically in the next section, but....
 
 ```ruby
 2.3.3 :003 > "hi".length
- => 2
+#=> 2
 2.3.3 :004 > x = "hi"
- => "hi"
+#=> "hi"
 2.3.3 :005 > x.length
- => 2
+#=> 2
 2.3.3 :006 > y = "there"
- => "there"
+#=> "there"
 2.3.3 :007 > y.length
- => 5
+#=> 5
 2.3.3 :008 > tip = "These two strings need at least #{ x.length + y.length } slots"
- => "These two strings need at least 7 slots"
+#=> "These two strings need at least 7 slots"
 2.3.3 :009 > puts tip
 These two strings need at least 7 slots
- => nil
+#=> nil
 ```
 
 Amazing, right? Instances being smart about themselves means you can ask them
@@ -99,75 +99,76 @@ to count `String` length.
 ## Define Attribute / Property
 
 An attribute on an instance is a fixed bit of information that the instance can
-provide you. In Ruby all instances have an attribute called `.class`. `String`s
-in Ruby have the attribute or property `length`.
+provide you. In Ruby, all instances have an attribute called `.class`. `String`s
+in Ruby also have the attribute or property called `length`.
 
 ```ruby
 2.3.3 :003 > "hi".length
- => 2
+#=> 2
 2.3.3 :004 > x = "hi"
- => "hi"
+#=> "hi"
 2.3.3 :005 > x.length
- => 2
+#=> 2
 ```
 
-`Integer`s *do not* have the `length` property.
+`Integer`s _do not_ have the `length` attribute.
 
 ```ruby
 2.3.3 :010 > 3.14.length
-NoMethodError: undefined method `length' for 3.14:Float
+NoMethodError: undefined method 'length' for 3.14:Float
 ```
 
 Just as fish don't have a "knit" method, `Float`s don't know how long they are.
 
-Attributes are tiny little facts that an knows about itself that it
-***returns*** when asked.
+Attributes are tiny little facts that an instance knows about itself that it
+**_returns_** when asked.
 
 ## Define "Dot-notation" Syntax
 
-We access a property by adding a `.` and then the `property name` after the
-instance or a variable pointing to an instance. We discovered `"hi"`'s class by
-asking it for its `.class` attribute
+We access an attribute by adding a `.` and then the `attribute name` after the
+instance or a variable pointing to the instance. We discovered `"hi"`'s class by
+asking it for its `.class` attribute.
 
 ## Define Method
 
 Ruby instances have "internal" methods. You didn't define them by writing
 `def...end` somewhere. The makers of Ruby did! While attributes report simple
 facts, methods are activities that instances know how to do. In Ruby, a
-`String` knows how to ***return*** a `reverse`d or `capitalize`d itself.
+`String` knows how to **_return_** a `reverse`d or `capitalize`d version of
+itself.
 
 ```ruby
 2.3.3 :011 > mirror = "olleh"
- => "olleh"
+#=> "olleh"
 2.3.3 :012 > mirror.reverse
- => "hello"
+#=> "hello"
 2.3.3 :014 > mirror.capitalize
- => "Olleh"
+#=> "Olleh"
 ```
 
-Just as before, an `Integer` doesn't know how to `.reverse`:
+Just as before, an `Integer` does not know how to `.reverse`:
 
 ```ruby
 2.3.3 :013 > 2112.reverse
-NoMethodError: undefined method `reverse' for 2112:Fixnum
+NoMethodError: undefined method 'reverse' for 2112:Fixnum
 ```
 
-***What methods or attributes an instance has available depend on its class.***
+**_What methods or attributes an instance has available depends on its class._**
 
 ## Demonstrate Method Chaining
 
-Remember how expressions in Ruby always have a return value. And we just
+Remember, expressions in Ruby always have a return value. And we just
 learned that methods and attributes _return_ things. This means we can chain
 "dot-notation" calls to transform data.
 
 ```ruby
 2.3.3 :011 > mirror = "olleh"
- => "olleh"
+#=> "olleh"
 2.3.3 :017 > mirror.reverse.capitalize
- => "Hello"
+#=> "Hello"
 ```
 
-As a sneak peak of what this means we will be able to do things like:
+As a sneak peek of what this means, we will be able to do things like:
 
 ```ruby
 first_place = sales_team.sort.first
@@ -183,20 +184,21 @@ express complex human ideas in tiny words separated by `.`. Amazing!
 We know you're really excited about `reverse` and `capitalize`, but are there
 other attributes and methods supported by `String`? Of course! We can look in
 the Ruby documentation for [`String`][string]. Or you could look at the
-information for `Fixnum` (which is confusingly documented under `Integer`) or
-`Float`. Check it out and try it out! We just found the _method_ `.count` which
-takes as an _argument_ another `String` to search for:
+information for `Fixnum` (which is confusingly documented under
+[`Integer`][integer]) or [`Float`][float]. Check it out and try it out! We just
+found the _method_ `.count` which takes as an _argument_ another `String` to
+search for:
 
 ```ruby
 2.3.3 :018 > "zaboomafoo".count("o")
- => 4
+#=> 4
 ```
 
-Feel free to explore! If a _method_ seems to weird, it's OK to skip it. Try
+Feel free to explore! If a _method_ seems weird, it's OK to skip it. Try
 ones that seem obvious or interesting. Here's a fun one:
 
 ```ruby
-# Convert a Integer to a String, use String's count method to count
+# Convert an Integer to a String, use String's count method to count
 # the 0's present. Use that number as the first term in a ternary expression
 # and puts the result. Amazing!
 
@@ -206,18 +208,19 @@ Big Money!
 
 ## Conclusion
 
-Here we've presented the basic knowledge you need in order to work the some of
-the most important objects that Ruby provides. Using "dot-notation" we ask
+Here, we've presented the basic knowledge you need in order to work the some of
+the most important objects that Ruby provides. Using "dot-notation," we ask
 instances to tell us about their _attributes_ or to return transformations of
 themselves through _methods_. Instances are linked by their class and Ruby's
 documentation on classes tells you what attributes and methods instances of
-that class respond to. If you ask an instance to do something that it's class
+that class respond to. If you ask an instance to do something that its class
 doesn't make available, Ruby will report an error.
 
 ## Resources
 
-* [`String` Documentation][string]
-* [`Integer` Documentation][integer]
+- [`String` Documentation][string]
+- [`Integer` Documentation][integer]
 
 [string]: https://ruby-doc.org/core-2.6.3/String.html
 [integer]: https://ruby-doc.org/core-2.6.3/Integer.html
+[float]: https://ruby-doc.org/core-2.6.3/Float.html
