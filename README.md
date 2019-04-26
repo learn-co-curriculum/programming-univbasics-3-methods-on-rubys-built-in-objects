@@ -13,12 +13,12 @@
 
 ## Introduction
 
-In the previous lessons you've learned to encapsulate work in methods. Methods
+In the previous lessons, you've learned to encapsulate work in methods. Methods
 can take in arguments and then use repetition, selection, and expression
 evaluation to provide information about the arguments they were handed.
 
 But Ruby is an Object-Oriented Language. That means that many of the default
-types of data, can run methods that are "inside" them. They can tell you things
+types of data can run methods that are "inside" them. They can tell you things
 about themselves or they can transform themselves. We've already seen that the
 constants of `3.14` or `8675309` or `"Love Will Tear Us Apart"` can tell you
 things about themselves.
@@ -51,9 +51,20 @@ the` String` class.
 
 ## Define Class
 
-A class is the thing that makes all instances the same thing. Remember our
-roots in programming as conversation: what makes similar things similar? It's a
-deep philosophical question, but a class defines what related instances can do.
+A class is an abstraction that establishes what all of its instances are like.
+This is an ancient and difficult philosophical question. How is a tall redwood
+tree, also like an oak tree, also like a magnolia tree? Some lose their leaves,
+others do not. Nevertheless, we all know they are "trees." If we travel to a
+remote country and see a beautiful thing with bark, leaves, and cherry
+blossoms, we immediately know it's a tree without being told. Somehow there's a
+blueprint of the idea of Tree-ness that all the trees we know honor.
+
+> **PHILOSOPHY TIP**: Yes. This programming idea is built on Plato's theory of
+> forms.
+
+It's a deep philosophical question, but a class defines what related instances
+know about themselves (_attributes_, more below) and can do (_methods_, more
+below).
 
 All "instances" in Ruby can tell you their class by adding `.class` to the end
 of their name.
@@ -70,7 +81,7 @@ thing, that's a core part of what makes similar things similar in our human
 brains.
 
 For example, in Ruby, `String`s know how long they are. We'll explain what's
-going on specifically in the next section, but....
+going on specifically in the next section, but:
 
 ```ruby
 2.3.3 :003 > "hi".length
@@ -99,7 +110,7 @@ to count `String` length.
 ## Define Attribute / Property
 
 An attribute on an instance is a fixed bit of information that the instance can
-provide you. In Ruby all instances have an attribute called `.class`. `String`s
+provide you. In Ruby, all instances have an attribute called `.class`. `String`s
 in Ruby have the attribute or property `length`.
 
 ```ruby
@@ -120,7 +131,7 @@ NoMethodError: undefined method `length' for 3.14:Float
 
 Just as fish don't have a "knit" method, `Float`s don't know how long they are.
 
-Attributes are tiny little facts that an knows about itself that it
+Attributes are tiny little facts that an object knows about itself that it
 ***returns*** when asked.
 
 ## Define "Dot-notation" Syntax
@@ -149,25 +160,54 @@ Just as before, an `Integer` doesn't know how to `.reverse`:
 
 ```ruby
 2.3.3 :013 > 2112.reverse
-NoMethodError: undefined method `reverse' for 2112:Fixnum
+NoMethodError: undefined method `reverse' for 2112:...
 ```
 
 ***What methods or attributes an instance has available depend on its class.***
 
 ## Demonstrate Method Chaining
 
-Remember how expressions in Ruby always have a return value. And we just
-learned that methods and attributes _return_ things. This means we can chain
-"dot-notation" calls to transform data.
+Here are three facts:
+
+* Values return values (themselves!)
+* Attributes return values
+* Methods return values
+
+And we agree that values (or instances, or objects) can have methods or
+attribute requests made upon them by using "dot-notation."
+
+Let's imagine (or try out in IRB!) we evaluate this expression:
 
 ```ruby
 2.3.3 :011 > mirror = "olleh"
  => "olleh"
+```
+
+The variable `mirror` points to a value of class type `String`. We can invoke a
+method on it to reverse the order of letters:
+
+```ruby
+2.3.3 :017 > mirror.reverse
+ => "hello"
+```
+
+Or we could capitalize the value pointed at by `mirror`:
+
+```ruby
+2.3.3 :017 > mirror.capitalize
+ => "Olleh"
+```
+
+But the _return value_ of `capitalize` is a `String`, just like the original
+`String` of `"olleh"`. So we should be able to invoke a `String` method on the
+return value of `capitalize`. Indeed, we can:
+
+```ruby
 2.3.3 :017 > mirror.reverse.capitalize
  => "Hello"
 ```
 
-As a sneak peak of what this means we will be able to do things like:
+As a sneak peek of what this means, we will be able to do things like:
 
 ```ruby
 first_place = sales_team.sort.first
@@ -180,12 +220,12 @@ express complex human ideas in tiny words separated by `.`. Amazing!
 
 ## Find Documentation About Methods and Attributes
 
-We know you're really excited about `reverse` and `capitalize`, but are there
-other attributes and methods supported by `String`? Of course! We can look in
-the Ruby documentation for [`String`][string]. Or you could look at the
-information for `Fixnum` (which is confusingly documented under `Integer`) or
-`Float`. Check it out and try it out! We just found the _method_ `.count` which
-takes as an _argument_ another `String` to search for:
+We know you're really excited about `reverse` and `capitalize`. There yet other
+attributes and methods supported by `String`. We can look in the Ruby
+documentation for [`String`][string]. Or you could look at the information for
+[`Integer`][integer] or `Float`. Check it out and try it out!  We just found
+the _method_ `.count` which takes as an _argument_ another `String` to search
+for:
 
 ```ruby
 2.3.3 :018 > "zaboomafoo".count("o")
@@ -196,7 +236,7 @@ Feel free to explore! If a _method_ seems to weird, it's OK to skip it. Try
 ones that seem obvious or interesting. Here's a fun one:
 
 ```ruby
-# Convert a Integer to a String, use String's count method to count
+# Convert an Integer to a String, use String's count method to count
 # the 0's present. Use that number as the first term in a ternary expression
 # and puts the result. Amazing!
 
@@ -206,12 +246,12 @@ Big Money!
 
 ## Conclusion
 
-Here we've presented the basic knowledge you need in order to work the some of
+Here we've presented the basic knowledge you need in order to with the some of
 the most important objects that Ruby provides. Using "dot-notation" we ask
 instances to tell us about their _attributes_ or to return transformations of
 themselves through _methods_. Instances are linked by their class and Ruby's
 documentation on classes tells you what attributes and methods instances of
-that class respond to. If you ask an instance to do something that it's class
+that class respond to. If you ask an instance to do something that its class
 doesn't make available, Ruby will report an error.
 
 ## Resources
