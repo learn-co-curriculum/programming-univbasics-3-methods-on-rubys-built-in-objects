@@ -247,7 +247,7 @@ Big Money!
 
 ## Conclusion
 
-instances to tell us about their _attributes_ or to return transformations of
+Instances to tell us about their _attributes_ or to return transformations of
 themselves through _methods_. Instances are linked by their class and Ruby's
 documentation on classes tells you what attributes and methods instances of
 that class respond to. If you ask an instance to do something that its class
